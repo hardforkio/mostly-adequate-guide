@@ -559,6 +559,7 @@ class Task {
   }
 }
 
+/* eslint-disable max-len, global-require, no-return-assign, no-param-reassign */
 // In nodejs the existance of a class method named `inspect` will trigger a deprecation warning
 // when passing an instance to `console.log`:
 // `(node:3845) [DEP0079] DeprecationWarning: Custom inspection function on Objects via .inspect() is deprecated`
@@ -568,6 +569,8 @@ if (typeof module !== 'undefined' && typeof this !== 'undefined' && this.module 
   const assignCustomInspect = it => it.prototype[customInspect] = it.prototype.inspect;
   [Left, Right, Identity, IO, Map, List, Maybe, Task].forEach(assignCustomInspect);
 }
+/* eslint-enable max-len, global-require, no-return-assign, no-param-reassign */
+
 
 const identity = function identity(x) { return x; };
 
