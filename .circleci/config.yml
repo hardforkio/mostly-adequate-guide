@@ -15,5 +15,8 @@ jobs:
           command: npm run test
           <<: *exercise_dir
       - run:
+          command: npm run ch04
+          <<: *exercise_dir
+      - run:
           command: npm run lint
           <<: *exercise_dir
