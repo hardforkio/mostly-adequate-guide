@@ -13,7 +13,17 @@
 // Remember either's two arguments must return the same type.
 
 // validateName :: User -> Either String ()
-const validateName = undefined;
+const validateName = function validateName(user) {
+  return user.name.length > 3
+    ? Either.of('Valid user name.')
+    : left('Invalid user name.');
+};
 
 // register :: User -> IO String
-const register = compose(undefined, validateUser(validateName));
+const register = compose(
+  either(
+    err => new IO(() => 'Error'),
+    compose(map(showWelcome), save),
+  ),
+  validateUser(validateName),
+);

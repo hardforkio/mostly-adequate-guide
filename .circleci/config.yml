@@ -12,7 +12,7 @@ jobs:
           command: npm install
           <<: *exercise_dir
       - run:
-          command: npm run test
+          command: npm run ch08
           <<: *exercise_dir
       - run:
           command: npm run lint
